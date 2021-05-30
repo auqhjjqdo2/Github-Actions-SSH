@@ -1,0 +1,15 @@
+
+name: Github-Actions-SSH
+on:
+  watch:
+    types: started
+  workflow_dispatch:
+jobs:
+  Github-Actions-SSH:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: checkout
+        uses: actions/checkout@main
+      - name: Start Github-Actions-SSH via tmate
+        uses: mxschmitt/action-tmate@master
