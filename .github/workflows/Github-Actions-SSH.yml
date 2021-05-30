@@ -11,5 +11,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@main
-      - name: Start Github-Actions-SSH via tmate
+      - name: 环境搭建
+        run: |
+          sudo snap install ffmpeg --channel=latest/edge
+          pip3 install youtube-dl
+          chmod 777 ./OneDriveUploader
+      - name: 运行SSH
         uses: mxschmitt/action-tmate@master
